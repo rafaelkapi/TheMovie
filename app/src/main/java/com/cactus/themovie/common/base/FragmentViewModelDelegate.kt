@@ -2,7 +2,7 @@ package com.cactus.themovie.common.base
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.cactus.marvelcomics.common.ViewModelFactory
+import com.cactus.themovie.common.ViewModelFactory
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty

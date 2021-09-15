@@ -1,8 +1,8 @@
 package com.cactus.themovie.di
 
 import android.content.Context
-import com.cactus.marvelcomics.common.ViewModelFactoryModule
-import com.cactus.themovie.network.NetworkModule
+import com.cactus.themovie.common.ViewModelFactoryModule
+import com.cactus.themovie.network.di.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

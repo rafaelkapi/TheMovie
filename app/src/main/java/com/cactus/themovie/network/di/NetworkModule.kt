@@ -1,13 +1,13 @@
-package com.cactus.themovie.network
+package com.cactus.themovie.network.di
 
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import com.cactus.themovie.BuildConfig
+import com.cactus.themovie.network.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache

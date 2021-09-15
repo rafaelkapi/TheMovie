@@ -1,16 +1,12 @@
-package com.cactus.marvelcomics.common
+package com.cactus.themovie.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
-import java.lang.annotation.Documented
-import java.lang.annotation.ElementType
-import java.lang.annotation.RetentionPolicy
 import javax.inject.Inject
 import javax.inject.Provider
-import javax.inject.Qualifier
 import kotlin.reflect.KClass
 
 @Suppress("UNCHECKED_CAST")

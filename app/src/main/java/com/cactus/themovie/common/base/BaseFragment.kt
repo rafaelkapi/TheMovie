@@ -1,6 +1,6 @@
 package com.cactus.themovie.common.base
 
-import com.cactus.marvelcomics.common.ViewModelFactory
+import com.cactus.themovie.common.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

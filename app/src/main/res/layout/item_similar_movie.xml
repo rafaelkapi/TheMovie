@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.cactus.themovie.moviedetails.presentation.list.ItemSimilarViewModel" />
+
+    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,49 +27,53 @@
                 android:id="@+id/iv_poster"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                setImageUrlResize="@{viewmodel.posterUrl}"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/backgrounds/scenic"
-                app:layout_constraintDimensionRatio="9:16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="9:13"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+                tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_stack_xs"
                 android:layout_marginBottom="@dimen/spacing_stack_xxs"
+                android:text="@{viewmodel.title}"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/font_size_xxs"
-                app:layout_constraintVertical_bias=".4"
-                app:layout_constraintStart_toEndOf="@id/iv_poster"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="Edward Scissorhands"
-                />
+                app:layout_constraintStart_toEndOf="@id/iv_poster"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".4"
+                tools:text="Edward Scissorhands" />
 
             <TextView
-                android:id="@+id/tv_date"
+                android:id="@+id/tv_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewmodel.releaseDate}"
                 android:textColor="@color/textColorSecondary"
                 android:textSize="@dimen/font_size_xxxs"
-                app:layout_constraintVertical_bias=".1"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintVertical_bias=".1"
                 tools:text="1990" />
 
             <TextView
                 android:id="@+id/tv_genres"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_stack_xxs"
+                android:layout_marginStart="12dp"
+                android:text="@{viewmodel.genres}"
                 android:textColor="@color/textColorSecondary"
                 android:textSize="@dimen/font_size_xxxs"
-                app:layout_constraintStart_toEndOf="@id/tv_date"
-                app:layout_constraintTop_toTopOf="@id/tv_date"
+                app:layout_constraintStart_toEndOf="@id/tv_year"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_year"
                 tools:text="Drama, Fantasy" />
 
 
@@ -71,8 +83,7 @@
                 android:layout_margin="16dp"
                 android:background="@drawable/ic_baseline_check_circle_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

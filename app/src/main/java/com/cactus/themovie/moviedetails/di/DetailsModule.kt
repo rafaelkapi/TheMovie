@@ -1,13 +1,13 @@
 package com.cactus.themovie.moviedetails.di
 
 import androidx.lifecycle.ViewModel
-import com.cactus.marvelcomics.common.ViewModelKey
+import com.cactus.themovie.common.ViewModelKey
 import com.cactus.themovie.di.scopes.FragmentScope
 import com.cactus.themovie.moviedetails.data.DetailsRepository
 import com.cactus.themovie.moviedetails.data.DetailsRepositoryImp
 import com.cactus.themovie.moviedetails.data.DetailsService
-import com.cactus.themovie.moviedetails.view.DetailsFragment
-import com.cactus.themovie.moviedetails.viewmodel.DetailsViewModel
+import com.cactus.themovie.moviedetails.presentation.DetailsFragment
+import com.cactus.themovie.moviedetails.presentation.DetailsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

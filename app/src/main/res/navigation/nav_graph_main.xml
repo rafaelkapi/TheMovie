@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.cactus.themovie.moviedetails.view.DetailsFragment"
+        android:name="com.cactus.themovie.moviedetails.presentation.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/fragment_details"/>
 </navigation>

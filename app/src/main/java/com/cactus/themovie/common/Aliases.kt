@@ -1,6 +1,4 @@
 package com.cactus.themovie.common
 
-
-
-typealias CallClickCharacter = (() -> Unit)?
+typealias CallSimple = (() -> Unit)?
 
