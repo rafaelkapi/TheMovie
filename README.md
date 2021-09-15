@@ -2,7 +2,7 @@
 
 ![Preview-Screens](screenshotTheMovie.png)
 
-## Sobre o Projeto
+## About Project
 
 This app was developed through a [challenge](file:///C:/Users/rafae/Downloads/Desafio%20M2y%20Android%20%20(1).pdf). In addition to the resources required by the challenge, others were added such as:
 - Pull to refresh
