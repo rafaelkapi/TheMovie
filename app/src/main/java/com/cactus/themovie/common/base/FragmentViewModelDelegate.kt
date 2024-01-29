@@ -1,8 +1,12 @@
+/*
+ * Copyright (c)
+ * 2018-2021 XP Inc
+ * All Rights Reserved
+ */
 package com.cactus.themovie.common.base
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.cactus.themovie.common.ViewModelFactory
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
@@ -10,7 +14,7 @@ import kotlin.reflect.KProperty
 class FragmentViewModelDelegate<T : BaseViewModel>(
     private val clazz: KClass<T>,
     private val fragment: Fragment,
-    private val vmFactory: () -> ViewModelFactory
+    private val vmFactory: () -> DaggerViewModelFactory
 ) : ReadWriteProperty<Fragment, T> {
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {

@@ -1,12 +1,8 @@
 package com.cactus.themovie
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
-import androidx.core.content.ContextCompat
-import com.cactus.themovie.common.base.BaseActivity
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,7 +8,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cactus.themovie.R
-import com.cactus.themovie.common.base.BaseFragment
+import com.cactus.themovie.common.base.BaseMvvmFragment
 import com.cactus.themovie.common.hide
 import com.cactus.themovie.common.show
 import com.cactus.themovie.databinding.FragmentDetailsBinding
@@ -18,22 +18,22 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_details.*
 
 
-class DetailsFragment : BaseFragment() {
+class DetailsFragment : BaseMvvmFragment() {
 
-    private val viewModel by appViewModel<DetailsViewModel>()
+//    private val viewModel by appViewModel<DetailsViewModel>()
     private lateinit var binding: FragmentDetailsBinding
 
     private lateinit var containerViewActivityMain: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.apply {
-            loadingShow = { progressBar.show() }
-            loadingHide = { progressBar.hide() }
-            loadingSimilarMovieHide = { shimmer_similar_movies.hide() }
-            startAnimationLike = { startAnimationLike() }
-            emptyContainerView = { x -> emptyContainerView(x) }
-        }
+//        viewModel.apply {
+//            loadingShow = { progressBar.show() }
+//            loadingHide = { progressBar.hide() }
+//            loadingSimilarMovieHide = { shimmer_similar_movies.hide() }
+//            startAnimationLike = { startAnimationLike() }
+//            emptyContainerView = { x -> emptyContainerView(x) }
+//        }
     }
 
     override fun onCreateView(
@@ -41,14 +41,14 @@ class DetailsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
-        binding.lifecycleOwner = this
-        binding.viewmodel = viewModel
+//        binding.lifecycleOwner = this
+//        binding.viewmodel = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getMovie()
+//        viewModel.getMovie()
         setupObservers()
         setupRecyclerViewCharacters()
         setScrollViewBehavior()
@@ -56,13 +56,13 @@ class DetailsFragment : BaseFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.similarMoviesLiveData.observe(viewLifecycleOwner, {
-            (binding.rvSimilar.adapter as DetailsAdapter).list = it
-        })
-
-        viewModel.showNotificationErrorLiveData.observe(viewLifecycleOwner,{
-            showErrorNotificationView()
-        })
+//        viewModel.similarMoviesLiveData.observe(viewLifecycleOwner, {
+//            (binding.rvSimilar.adapter as DetailsAdapter).list = it
+//        })
+//
+//        viewModel.showNotificationErrorLiveData.observe(viewLifecycleOwner,{
+//            showErrorNotificationView()
+//        })
     }
 
     private fun startAnimationLike() {
@@ -119,15 +119,15 @@ class DetailsFragment : BaseFragment() {
     private fun emptyContainerView(show: Boolean) {
         if (show) {
             resetLayout()
-            shimmer_similar_movies.hide()
-            tv_likes.hide()
-            iv_popularity.hide()
-            morphView_like.hide()
+//            shimmer_similar_movies.hide()
+//            tv_likes.hide()
+//            iv_popularity.hide()
+//            morphView_like.hide()
         } else {
-            shimmer_similar_movies.show()
-            tv_likes.show()
-            iv_popularity.show()
-            morphView_like.show()
+//            shimmer_similar_movies.show()
+//            tv_likes.show()
+//            iv_popularity.show()
+//            morphView_like.show()
         }
     }
 
@@ -150,7 +150,7 @@ class DetailsFragment : BaseFragment() {
     private fun pullToRefresh() {
         binding.swipeRefreshLayout.apply {
             setOnRefreshListener {
-                viewModel.getMovie()
+//                viewModel.getMovie()
                 isRefreshing = false
 
             }
@@ -158,13 +158,13 @@ class DetailsFragment : BaseFragment() {
     }
 
     private fun resetLayout() {
-        viewModel.apply {
-            movieLiveData.value = Movie()
-            genresListLiveData.value?.clear()
-            similarMoviesLiveData.value?.clear()
-            popularityLiveData.value = ""
-            likesLiveData.value = ""
-        }
+//        viewModel.apply {
+//            movieLiveData.value = Movie()
+//            genresListLiveData.value?.clear()
+//            similarMoviesLiveData.value?.clear()
+//            popularityLiveData.value = ""
+//            likesLiveData.value = ""
+//        }
     }
 
 

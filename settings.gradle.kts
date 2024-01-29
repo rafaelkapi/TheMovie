@@ -9,7 +9,9 @@ pluginManagement {
 include(
     ":movie",
     ":app",
+    ":app:themovie",
     ":commons",
-    ":movie"
+    ":movie",
+
 )
 

@@ -18,12 +18,12 @@ object MovieApp {
             targetSdk = 33
         ),
         modules = listOf(
-            Module(path = Modules.app, type = ModuleType.ANDROID_APPLICATION)
+            Module(path = Modules.theMovie, type = ModuleType.ANDROID_APPLICATION)
         )
     )
 
     object Modules {
         const val ROOT = ":app"
-        const val app = "$ROOT:${DefaultModuleNames.APP}"
+        const val theMovie = "$ROOT:themovie"
     }
 }
