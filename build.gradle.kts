@@ -1,17 +1,25 @@
-//buildscript {
-//    dependencies {
-//        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
-//    }
-//}
-repositories {
-    google()
-    mavenCentral()
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath(libs.androidx.navigation.safe.args.plugin)
+        classpath(libs.google.services.plugin)
+        classpath(libs.google.protobuf.plugin)
+        classpath(libs.google.dagger.hilt.android.plugin)
+        classpath(libs.kotlin.gradle.plugin)
+    }
 }
 
-
-dependencies {
-//    implementation(buildSrcLibs.android.gradle.plugin)
-//    implementation(buildSrcLibs.kotlin.gradle.plugin)
-//    implementation(buildSrcLibs.kotlin.gradle.api.plugin)
-//    implementation(buildSrcLibs.kotlin.dsl.plugin)
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
 }
