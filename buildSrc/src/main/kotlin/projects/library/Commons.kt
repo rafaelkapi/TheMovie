@@ -15,13 +15,24 @@ object Commons {
         
         modules = listOf(
             Module(
-                path = Modules.ROOT,
-                type = ModuleType.ANDROID_SAMPLE,
+                path = Modules.network,
+                type = ModuleType.ANDROID_LIBRARY,
+            ),
+            Module(
+                path = Modules.base,
+                type = ModuleType.ANDROID_LIBRARY,
+            ),
+            Module(
+                path = Modules.extensions,
+                type = ModuleType.ANDROID_LIBRARY,
             )
         )
     )
 
     object Modules {
         const val ROOT = ":commons"
+        val network = "$ROOT:network"
+        val base = "$ROOT:base"
+        val extensions = "$ROOT:extensions"
     }
 }

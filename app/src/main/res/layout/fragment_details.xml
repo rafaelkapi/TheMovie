@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.cactus.themovie.moviedetails.presentation.DetailsViewModel" />
+            type="com.cactus.movie.moviedetails.presentation.DetailsViewModel" />
 
     </data>
 
@@ -113,7 +113,7 @@
                         app:layout_constraintTop_toTopOf="@+id/tv_likes"
                         tools:text="  3.5K Popularity" />
 
-                    <com.cactus.themovie.moviedetails.domain.MorphViewLike
+                    <com.cactus.movie.moviedetails.presentation.view.MorphViewLike
                         android:id="@+id/morphView_like"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

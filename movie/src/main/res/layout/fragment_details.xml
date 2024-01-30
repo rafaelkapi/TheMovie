@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.cactus.movie.moviedetails.presentation.DetailsViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_poster"
+                        setImageUrl="@{viewmodel.movieLiveData.backdropUrl}"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/colorPrimaryLight"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintDimensionRatio="16:15"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@tools:sample/backgrounds/scenic" />
+
+                    <View
+                        android:id="@+id/shadow_poster"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="top|center"
+                        android:background="@drawable/shadows"
+                        app:layout_constraintDimensionRatio="16:15"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/v_divider"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias=".6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_stack_xxs"
+                        android:layout_marginBottom="@dimen/spacing_stack_xxs"
+                        android:text="@{viewmodel.movieLiveData.title}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/font_size_sm"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/v_divider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_poster"
+                        tools:text="The Very Best Of Johnny Depp" />
+
+                    <TextView
+                        android:id="@+id/tv_likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_stack_xxs"
+                        android:background="@android:color/transparent"
+                        android:text="@{viewmodel.likesLiveData}"
+                        android:textColor="@color/white"
+                        app:drawableStartCompat="@drawable/ic_baseline_favorite_24"
+                        app:layout_constraintStart_toStartOf="@id/tv_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                        tools:text="  1.2K Likes" />
+
+                    <ImageView
+                        android:id="@+id/iv_popularity"
+                        android:layout_width="@dimen/iv_popularity_w_h"
+                        android:layout_height="@dimen/iv_popularity_w_h"
+                        android:layout_marginStart="@dimen/spacing_stack_md"
+                        android:src="@drawable/ic_popularity_white"
+                        app:layout_constraintStart_toEndOf="@id/tv_likes"
+                        app:layout_constraintTop_toTopOf="@+id/tv_likes" />
+
+                    <TextView
+                        android:id="@+id/tv_popularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="@{viewmodel.popularityLiveData}"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@id/iv_popularity"
+                        app:layout_constraintTop_toTopOf="@+id/tv_likes"
+                        tools:text="  3.5K Popularity" />
+
+                    <com.cactus.movie.moviedetails.presentation.view.MorphLikeView
+                        android:id="@+id/morphView_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:onClick="@{()-> viewmodel.onClickLike()}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_title"
+                        tools:src="@drawable/avd_nolike_to_like" />
+
+                    <TextView
+                        android:id="@+id/tv_overview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_stack_xxs"
+                        android:layout_marginEnd="@dimen/spacing_stack_xs"
+                        android:text="@{viewmodel.movieLiveData.overview}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="@dimen/font_size_xxs"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_likes"
+                        tools:text="Era uma vez um pequeno gafanhoto ousado,
+                 que com sua ousadia resolveu dominar o mundo,
+                  se juntou com mais dois candango ousados,
+                   e os bichin reviraram o planeta kkkk." />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_similar_movies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_stack_xs"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_overview">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/item_shimmer" />
+
+                            <include layout="@layout/item_shimmer" />
+
+                            <include layout="@layout/item_shimmer" />
+
+                            <include layout="@layout/item_shimmer" />
+
+                            <include layout="@layout/item_shimmer" />
+
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_similar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_stack_xs"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_overview"
+                        tools:listitem="@layout/item_similar_movie" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</layout>

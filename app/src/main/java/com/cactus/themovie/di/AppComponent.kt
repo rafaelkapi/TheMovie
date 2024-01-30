@@ -2,7 +2,7 @@ package com.cactus.themovie.di
 
 import android.content.Context
 import com.cactus.themovie.common.ViewModelFactoryModule
-import com.cactus.themovie.network.di.NetworkModule
+import com.cactus.network.di.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -15,7 +15,7 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     ViewModelFactoryModule::class,
     ActivityBuilderModule::class,
-    NetworkModule::class
+    com.cactus.network.di.NetworkModule::class
     ])
 interface AppComponent : AndroidInjector<DaggerApplication> {
 

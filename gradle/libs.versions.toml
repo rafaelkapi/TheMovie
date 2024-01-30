@@ -293,3 +293,5 @@ rxjava2-rxjava-adapter = { module = "com.jakewharton.retrofit:retrofit2-rxjava2-
 rxjava2-rxkotlin = { module = "io.reactivex.rxjava2:rxkotlin", version.ref = "rxKotlinVersion" }
 rxpermissions = { module = "com.github.tbruyelle:rxpermissions", version.ref = "rxPermissionVersion" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmerVersion" }
+androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version = "2.7.0" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version = "2.7.0" }

@@ -10,8 +10,9 @@ include(
     ":movie",
     ":app",
     ":app:themovie",
-    ":commons",
+    ":commons:network",
+    ":commons:base",
+    ":commons:extensions",
     ":movie",
-
 )
-
+include(":commons:extensions")

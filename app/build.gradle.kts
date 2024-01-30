@@ -1,40 +1,34 @@
-import helpers.applyCustomPluginsByModuleType
-import projects.app.MovieApp
+dependencies {
+    // Kotlin
+    implementation(libs.kotlin.stdlib.jdk7)
+    implementation(libs.kotlin.reflect)
+
+    // AndroidUi
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.google.android.material)
+    implementation(libs.androidx.dynamicanimation)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment)
+
+    implementation(libs.androidx.lifecycle.common)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.androidx.lifecycle.reactivestreams)
+
+    // Dagger
+    implementation(libs.google.dagger.core)
+    implementation(libs.google.dagger.support)
+    implementation(libs.google.dagger.android)
+    kapt(libs.google.dagger.compiler)
+    kapt(libs.google.dagger.processor)
+
+    // Reactivex
+    implementation(libs.rxjava2.rxandroid)
+    implementation(libs.rxjava2.rxkotlin)
+    implementation(libs.rxjava2.rxjava)
 
 
-subprojects {
-    this.applyCustomPluginsByModuleType(MovieApp.projectInfo)
-    configure<com.android.build.gradle.BaseExtension> {
-        signingConfigs {
-            create("release") {
-                isV2SigningEnabled = true
-            }
-        }
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_11
-            targetCompatibility = JavaVersion.VERSION_11
-        }
-        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-            kotlinOptions.jvmTarget = "11"
-        }
-        defaultConfig {
-            manifestPlaceholders["scheme_app"] = "hubxp"
-            vectorDrawables.useSupportLibrary = true
-            versionCode = 144
-            versionName = "8.13.0"
-        }
-        buildTypes {
-            getByName("release") {
-                signingConfig = signingConfigs.getByName("release")
-                resValue("string", "app_name", "Hub XP")
-            }
-
-            getByName("debug") {
-                if (project.project.path.trim().endsWith("app")) {
-                    applicationIdSuffix = ".hml"
-                }
-                resValue("string", "app_name", "Hub XP - HML")
-            }
-        }
-    }
 }
