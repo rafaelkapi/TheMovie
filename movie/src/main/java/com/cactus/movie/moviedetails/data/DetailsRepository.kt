@@ -7,12 +7,12 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 interface DetailsRepository {
-    suspend fun getMovie(id: Int): Single<MovieResponse>
-    suspend fun getSimilarMovies(id: Int): Single<SimilarMoviesResponse>
-    suspend fun getGenresList(): Single<GenresListResponse>
+    fun getMovie(id: Int): Single<MovieResponse>
+    fun getSimilarMovies(id: Int): Single<SimilarMoviesResponse>
+    fun getGenresList(): GenresListResponse
 }
 
-class DetailsRepositoryImp @Inject constructor(
+class DetailsRepositoryImpl @Inject constructor(
     private val service: DetailsService,
 ) : DetailsRepository {
 
@@ -21,7 +21,7 @@ class DetailsRepositoryImp @Inject constructor(
         private const val SERVER_ERROR = 500
     }
 
-    override suspend fun getMovie(id: Int): Single<MovieResponse> {
+    override fun getMovie(id: Int): Single<MovieResponse> {
         val movieResponse = service.getMovie(id)
         return when (movieResponse.code()) {
             NOT_AUTHORIZED_CODE -> Single.error(Throwable(message = "We're experiencing some problems. Code: $NOT_AUTHORIZED_CODE" ))
@@ -30,7 +30,7 @@ class DetailsRepositoryImp @Inject constructor(
         }
     }
 
-    override suspend fun getSimilarMovies(id: Int): Single<SimilarMoviesResponse> = service.getSimilarMovies(id)
+    override fun getSimilarMovies(id: Int): Single<SimilarMoviesResponse> = service.getSimilarMovies(id)
 
-    override suspend fun getGenresList(): Single<GenresListResponse> = service.getGenresList()
+    override fun getGenresList(): GenresListResponse = service.getGenresList()
 }

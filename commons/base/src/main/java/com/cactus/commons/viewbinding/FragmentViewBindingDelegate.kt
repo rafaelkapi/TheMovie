@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
-import br.com.xpinc.viewbinding.observer.DelegateLifecycleObserver
+import com.cactus.commons.viewbinding.observer.DelegateLifecycleObserver
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 

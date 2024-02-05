@@ -3,9 +3,11 @@ package com.cactus.movie.moviedetails.di
 import androidx.lifecycle.ViewModel
 import com.cactus.commons.base.ViewModelKey
 import com.cactus.movie.moviedetails.data.DetailsRepository
-import com.cactus.movie.moviedetails.data.DetailsRepositoryImp
+import com.cactus.movie.moviedetails.data.DetailsRepositoryImpl
 import com.cactus.movie.moviedetails.data.DetailsService
 import com.cactus.movie.moviedetails.di.qualifiers.FragmentScope
+import com.cactus.movie.moviedetails.domain.DetailsInteractor
+import com.cactus.movie.moviedetails.domain.DetailsInteractorImpl
 import com.cactus.movie.moviedetails.presentation.DetailsFragment
 import com.cactus.movie.moviedetails.presentation.DetailsViewModel
 import dagger.Binds
@@ -18,7 +20,7 @@ import retrofit2.Retrofit
 @Module
 abstract class DetailsModuleBuilder {
     @FragmentScope
-    @ContributesAndroidInjector(modules = [DetailsDataModule::class, DetailsModule::class])
+    @ContributesAndroidInjector(modules = [ DetailsModule::class])
     abstract fun bindsDetailsFragment(): DetailsFragment
 }
 
@@ -29,16 +31,12 @@ abstract class DetailsModule {
     @IntoMap
     @ViewModelKey(DetailsViewModel::class)
     abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
-}
-
-
-
-@Module
-abstract class DetailsDataModule {
 
     @Binds
-    abstract fun provideLocalDataSource(repository: DetailsRepositoryImp): DetailsRepository
+    abstract fun bindDetailsRepository(impl: DetailsRepositoryImpl): DetailsRepository
 
+    @Binds
+    abstract fun bindDetailsInteractor(impl: DetailsInteractorImpl): DetailsInteractor
 
     @Module
     companion object {
@@ -47,5 +45,5 @@ abstract class DetailsDataModule {
         fun provideService(retrofit: Retrofit): DetailsService =
             retrofit.create(DetailsService::class.java)
     }
-
 }
+

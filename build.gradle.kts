@@ -7,6 +7,7 @@ subprojects {
         mavenCentral()
         google()
         gradlePluginPortal()
+        maven("https://jitpack.io")
     }
 
     // Plugins Apps
@@ -54,3 +55,10 @@ subprojects {
         }
     }
 }
+
+//allprojects {
+//    repositories {
+//        google()
+//        maven("https://jitpack.io")
+//    }
+//}

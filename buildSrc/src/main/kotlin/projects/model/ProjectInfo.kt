@@ -27,9 +27,9 @@ data class ProjectInfo(
  * @property targetSdk - the target SDK version for an Android module
  */
 data class AndroidVersion(
-    val compileSdkVersion: String = "android-33",
+    val compileSdkVersion: String = "android-34",
     val minSdkVersion: Int = 21,
-    val targetSdk: Int = 33
+    val targetSdk: Int = 34
 )
 
 /**

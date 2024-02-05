@@ -3,7 +3,7 @@
  * 2018-2022 XP Inc
  * All Rights Reserved
  */
-package br.com.xpinc.viewbinding.observer
+package com.cactus.commons.viewbinding.observer
 
 import androidx.annotation.RestrictTo
 import androidx.lifecycle.Lifecycle

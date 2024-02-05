@@ -15,4 +15,3 @@ include(
     ":commons:extensions",
     ":movie",
 )
-include(":commons:extensions")

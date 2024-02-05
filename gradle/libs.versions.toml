@@ -140,6 +140,8 @@ youtubeVersion = "10.0.4"
 zxingEmbeddedVersion = '3.6.0'
 zxingVersion = '3.4.0'
 dynatraceAndroidVersion = "8.273.1.1003"
+navigationFragmentKtxVersion = "2.7.6"
+navigationUiKtxVersion = "2.7.6"
 
 [libraries]
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradlePluginVersion" }
@@ -295,3 +297,5 @@ rxpermissions = { module = "com.github.tbruyelle:rxpermissions", version.ref = "
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmerVersion" }
 androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version = "2.7.0" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version = "2.7.0" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }

@@ -13,9 +13,9 @@ object MovieApp {
         groupId = "com.cactus.movieApp",
         scheme = "themovieapp",
         versions = AndroidVersion(
-            compileSdkVersion = "android-33",
+            compileSdkVersion = "android-34",
             minSdkVersion = 24,
-            targetSdk = 33
+            targetSdk = 34
         ),
         modules = listOf(
             Module(path = Modules.ROOT, type = ModuleType.ANDROID_APPLICATION)

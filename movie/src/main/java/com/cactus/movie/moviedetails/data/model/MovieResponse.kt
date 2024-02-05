@@ -1,5 +1,8 @@
 package com.cactus.movie.moviedetails.data.model
 
+import com.cactus.movie.moviedetails.presentation.model.MovieDetailsVo
+import com.cactus.movie.moviedetails.presentation.model.SimilarMoviesVo
+
 
 data class MovieResponse(
     val id: Int? = null,
@@ -16,9 +19,35 @@ data class MovieResponse(
     val vote_count: Int? = null
 )
 
+fun MovieResponse.toVo() = MovieDetailsVo(
+    title = title ?: "",
+    subtitle = overview ?: "",
+    likes = vote_count.toString(),
+    popularity = popularity.toString(),
+    posterUrl = posterUrl
+)
+
 data class SimilarMoviesResponse(
     val results: List<MovieResponse>? = null
     )
+
+fun SimilarMoviesResponse.toVo() = results?.map { movieResponse ->
+    SimilarMoviesVo(
+        title = movieResponse.title ?: "",
+        releaseDate = movieResponse.release_date ?: "",
+        movieGenres = "",
+        posterUrl = movieResponse.posterUrl
+    )
+}
+
+fun MovieResponse.toSimilarVo() =
+    SimilarMoviesVo(
+        title = title ?: "",
+        releaseDate = release_date ?: "",
+        movieGenres = "",
+        posterUrl = posterUrl
+    )
+
 
 data class GenresListResponse(
     val genres: List<Genre>

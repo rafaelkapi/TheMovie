@@ -1,3 +1,7 @@
+plugins {
+    id("kotlin-kapt")
+}
+
 android {
     buildFeatures {
         viewBinding = true
@@ -7,6 +11,7 @@ android {
 dependencies {
 
     api(project(projects.library.Commons.Modules.base))
+    api(project(projects.library.Commons.Modules.extensions))
 
     // AndroidX
     implementation(libs.androidx.appcompat)
@@ -49,4 +54,11 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
+
+    // Picasso
+    implementation(libs.picasso)
+
+    // UI
+    implementation(libs.androidx.swipe.refresh.layout)
+    implementation(libs.shimmer)
 }

@@ -3,11 +3,14 @@ package com.cactus.themovie
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import com.cactus.commons.base.BaseMvvmActivity
 
-class MainActivity : BaseActivity() {
+class MovieActivity : BaseMvvmActivity() {
+
+//    private lateinit var binding:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.movie_activity)
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

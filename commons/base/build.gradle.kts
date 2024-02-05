@@ -15,8 +15,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.common)
 
     // ViewModel
-    implementation(libs.androidx.lifecycle.extensions)
-    implementation(libs.androidx.lifecycle.reactivestreams)
+//    implementation(libs.androidx.lifecycle.extensions)
+//    implementation(libs.androidx.lifecycle.reactivestreams)
 
     // Dagger
     implementation(libs.google.dagger.core)
