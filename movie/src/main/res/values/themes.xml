@@ -11,8 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
 <!--        <item name="android:statusBarColor" tools:targetApi="l">#4D000000</item>-->
-<!--        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>-->
-<!--        <item name="android:enforceStatusBarContrast" tools:targetApi="kitkat">true</item>-->
+        <!--        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>-->
+        <!--        <item name="android:enforceStatusBarContrast" tools:targetApi="kitkat">true</item>-->
         <!-- Customize your theme here. -->
     </style>
 </resources>

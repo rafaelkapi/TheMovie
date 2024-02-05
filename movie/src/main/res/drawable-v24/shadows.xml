@@ -8,20 +8,18 @@
                 android:angle="90"
                 android:centerColor="#00000000"
                 android:centerY="60%"
-                android:startColor="#000000"
-                />
+                android:startColor="#000000" />
         </shape>
     </item>
 
     <item android:id="@+id/gradient_drawable2">
-    <shape>
-        <gradient
-            android:angle="90"
-            android:centerColor="#00000000"
-            android:centerY="95%"
-            android:endColor="#1A000000"
-            />
-    </shape>
+        <shape>
+            <gradient
+                android:angle="90"
+                android:centerColor="#00000000"
+                android:centerY="95%"
+                android:endColor="#1A000000" />
+        </shape>
     </item>
 
 

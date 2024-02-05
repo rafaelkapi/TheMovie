@@ -11,8 +11,4 @@
     <dimen name="spacing_stack_xl" category="spacing-stack">64dp</dimen>
     <dimen name="spacing_stack_xxl" category="spacing-stack">96dp</dimen>
     <dimen name="spacing_stack_xxxl" category="spacing-stack">128dp</dimen>
-    
-
-
-
 </resources>
