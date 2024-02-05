@@ -7,12 +7,14 @@ import com.cactus.movie.moviedetails.data.DetailsRepository
 import com.cactus.movie.moviedetails.domain.DetailsInteractor
 import com.cactus.movie.moviedetails.presentation.model.MovieDetailsVo
 import com.cactus.movie.moviedetails.presentation.model.SimilarMoviesVo
+import com.cactus.network.qualifier.CommonsIoScheduler
+import com.cactus.network.qualifier.CommonsMainScheduler
 import io.reactivex.Scheduler
 import javax.inject.Inject
 
 class DetailsViewModel @Inject constructor(
-    private val mainScheduler: Scheduler,
-    private val ioScheduler: Scheduler,
+    @CommonsIoScheduler private val ioScheduler: Scheduler,
+    @CommonsMainScheduler private val mainScheduler: Scheduler,
     private val interactor: DetailsInteractor
 ) : BaseViewModel() {
 

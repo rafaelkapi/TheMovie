@@ -12,7 +12,7 @@ class SubscriptionKeyInterceptor @Inject constructor(
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
 //        val builder = request.url.newBuilder()
-
+//
 //        builder.addQueryParameter(API_PARAMETER, privateKey)
 //
 //        request = request.newBuilder().url(builder.build()).build()

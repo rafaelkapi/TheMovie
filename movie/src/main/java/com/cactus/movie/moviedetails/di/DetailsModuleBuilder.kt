@@ -19,24 +19,24 @@ import retrofit2.Retrofit
 
 @Module
 abstract class DetailsModuleBuilder {
+
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ DetailsModule::class])
+    @ContributesAndroidInjector(modules =[ DetailsModule::class, ])
     abstract fun bindsDetailsFragment(): DetailsFragment
 }
 
 @Module
 abstract class DetailsModule {
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(DetailsViewModel::class)
-    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
-
     @Binds
     abstract fun bindDetailsRepository(impl: DetailsRepositoryImpl): DetailsRepository
 
     @Binds
     abstract fun bindDetailsInteractor(impl: DetailsInteractorImpl): DetailsInteractor
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailsViewModel::class)
+    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
 
     @Module
     companion object {

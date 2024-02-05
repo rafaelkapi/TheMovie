@@ -29,7 +29,7 @@ import com.squareup.picasso.Picasso
 
 class DetailsFragment : BaseMvvmFragment() {
 
-    private val viewModel by appViewModel<DetailsViewModel>()
+//    private val viewModel by appViewModel<DetailsViewModel>()
     private val binding by viewBinding(FragmentDetailsBinding::inflate)
 
     private lateinit var containerViewActivityMain: View
@@ -62,11 +62,11 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.state.observe(viewLifecycleOwner, SafeObserver { ::handlerState })
-
-        viewModel.similarMovies.observe(
-            viewLifecycleOwner,
-            SafeObserver { ::populateViewSimilarMovies })
+//        viewModel.state.observe(viewLifecycleOwner, SafeObserver { ::handlerState })
+//
+//        viewModel.similarMovies.observe(
+//            viewLifecycleOwner,
+//            SafeObserver { ::populateViewSimilarMovies })
     }
 
     @Suppress("UNCHECKED_CAST")
