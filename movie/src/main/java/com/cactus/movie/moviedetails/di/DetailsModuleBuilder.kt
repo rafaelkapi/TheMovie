@@ -21,7 +21,7 @@ import retrofit2.Retrofit
 abstract class DetailsModuleBuilder {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules =[ DetailsModule::class, ])
+    @ContributesAndroidInjector(modules =[DetailsModule::class, DetailsModuleViewModel::class])
     abstract fun bindsDetailsFragment(): DetailsFragment
 }
 
@@ -33,11 +33,6 @@ abstract class DetailsModule {
     @Binds
     abstract fun bindDetailsInteractor(impl: DetailsInteractorImpl): DetailsInteractor
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(DetailsViewModel::class)
-    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
-
     @Module
     companion object {
         @JvmStatic
@@ -45,5 +40,14 @@ abstract class DetailsModule {
         fun provideService(retrofit: Retrofit): DetailsService =
             retrofit.create(DetailsService::class.java)
     }
+}
+
+@Module
+abstract class DetailsModuleViewModel {
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailsViewModel::class)
+    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
+
 }
 

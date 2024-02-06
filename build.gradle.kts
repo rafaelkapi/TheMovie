@@ -42,14 +42,14 @@ subprojects {
             buildTypes {
                 getByName("release") {
                     signingConfig = signingConfigs.getByName("release")
-                    resValue("string", "app_name", "Hub XP")
+                    resValue("string", "app_name", "TheMovie")
                 }
 
                 getByName("debug") {
                     if (project.project.path.trim().endsWith("app")) {
                         applicationIdSuffix = ".hml"
                     }
-                    resValue("string", "app_name", "Hub XP - HML")
+                    resValue("string", "app_name", "TheMovie - HML")
                 }
             }
         }

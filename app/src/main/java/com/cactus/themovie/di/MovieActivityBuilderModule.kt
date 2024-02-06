@@ -6,9 +6,9 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-abstract class ActivityBuilderModule {
+abstract class MovieActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun bindMainActivity(): MovieActivity
+    abstract fun bindMovieActivity(): MovieActivity
 
 }

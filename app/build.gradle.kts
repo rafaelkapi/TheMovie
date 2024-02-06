@@ -28,6 +28,8 @@ dependencies {
     implementation(libs.androidx.fragment)
 
     implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.androidx.lifecycle.reactivestreams)
 
     // Dagger
     implementation(libs.google.dagger.core)
@@ -37,6 +39,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     kapt(libs.google.dagger.compiler)
     kapt(libs.google.dagger.processor)
+    kapt(libs.androidx.lifecycle.compiler)
 
     // Reactivex
     implementation(libs.rxjava2.rxandroid)

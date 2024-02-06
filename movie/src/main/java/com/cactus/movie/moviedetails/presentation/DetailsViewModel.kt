@@ -3,9 +3,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cactus.commons.base.BaseViewModel
 import com.cactus.commons.livedata.ViewState
-import com.cactus.movie.moviedetails.data.DetailsRepository
 import com.cactus.movie.moviedetails.domain.DetailsInteractor
-import com.cactus.movie.moviedetails.presentation.model.MovieDetailsVo
 import com.cactus.movie.moviedetails.presentation.model.SimilarMoviesVo
 import com.cactus.network.qualifier.CommonsIoScheduler
 import com.cactus.network.qualifier.CommonsMainScheduler
