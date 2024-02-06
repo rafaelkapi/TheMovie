@@ -51,11 +51,11 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun setupObservers() {
-        viewModel.state.observe(viewLifecycleOwner, SafeObserver { ::handlerState })
+        viewModel.state.observe(viewLifecycleOwner, SafeObserver { vo -> handlerState(vo) })
 
         viewModel.similarMovies.observe(
             viewLifecycleOwner,
-            SafeObserver { ::populateViewSimilarMovies })
+            SafeObserver { vo -> populateViewSimilarMovies(vo) })
     }
 
 //    @Suppress("UNCHECKED_CAST")
@@ -63,9 +63,9 @@ class DetailsFragment : BaseMvvmFragment() {
         when (viewState) {
             is Success<*> -> {
 
-//                (viewState.value as? List<SimilarMoviesVo>)?.let { list ->
-//                    populateViewSimilarMovies(list)
-//                }
+                (viewState.value as? List<SimilarMoviesVo>)?.let { list ->
+                    populateViewSimilarMovies(list)
+                }
                 (viewState.value as? MovieDetailsVo)?.let {
                     populateViewDetails(it)
                 }

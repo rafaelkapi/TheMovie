@@ -11,13 +11,13 @@ import retrofit2.http.Path
 interface DetailsService {
 
     @GET("/3/movie/{movie_id}")
-    fun getMovie(@Path("movie_id") movieId: Int?): Response<MovieResponse>
+    fun getMovie(@Path("movie_id") movieId: Int?): Single<Response<MovieResponse>>
 
     @GET("/3/movie/{movie_id}/similar")
     fun getSimilarMovies(@Path("movie_id") movieId: Int?): Single<SimilarMoviesResponse>
 
     @GET("/3/genre/movie/list")
-    fun getGenresList(): GenresListResponse
+    fun getGenresList(): Single<GenresListResponse>
 
 
 }

@@ -26,12 +26,14 @@ class DetailsViewModel @Inject constructor(
     override fun onCreate() {
         super.onCreate()
         getMovie()
+        getSimilarMovies()
     }
 
     private fun getMovie() {
         interactor.getMovieDetails(ID_MOVIE)
             .subscribeOn(ioScheduler)
             .observeOn(mainScheduler)
+            .doOnSubscribe {  _state.value = ViewState.Loading}
             .subscribe(
                 {
                     _state.value = ViewState.Success(it)

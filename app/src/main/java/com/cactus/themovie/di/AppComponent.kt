@@ -20,7 +20,6 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     ViewModelModule::class,
     MovieActivityBuilderModule::class,
-    CommonsNetworkBuilderModule::class,
     CommonsSchedulersModule::class,
     DetailsModuleBuilder::class,
     CommonsContextModule::class

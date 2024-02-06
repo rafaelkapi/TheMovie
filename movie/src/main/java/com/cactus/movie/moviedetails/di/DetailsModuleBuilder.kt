@@ -11,6 +11,7 @@ import com.cactus.movie.moviedetails.domain.DetailsInteractor
 import com.cactus.movie.moviedetails.domain.DetailsInteractorImpl
 import com.cactus.movie.moviedetails.presentation.DetailsFragment
 import com.cactus.movie.moviedetails.presentation.DetailsViewModel
+import com.cactus.network.di.CommonsNetworkBuilderModule
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -26,8 +27,9 @@ abstract class DetailsModuleBuilder {
     abstract fun bindsDetailsFragment(): DetailsFragment
 }
 
-@Module
+@Module(includes = [CommonsNetworkBuilderModule::class])
 abstract class DetailsModule {
+
     @Binds
     abstract fun bindDetailsRepository(impl: DetailsRepositoryImpl): DetailsRepository
 
@@ -47,5 +49,7 @@ abstract class DetailsModule {
             retrofit.create(DetailsService::class.java)
     }
 }
+
+
 
 

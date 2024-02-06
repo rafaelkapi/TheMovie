@@ -19,13 +19,17 @@ class DetailsInteractorImpl @Inject constructor(
 ) : DetailsInteractor {
     override fun getMovieDetails(id: Int) = repository.getMovie(id).map { it.toVo() }
     override fun getSimilarMovies(id: Int): Single<List<SimilarMoviesVo>> {
-        val genreCatalog = repository.getGenresList().genres.associate { it.id to it.name }
 
-        return repository.getSimilarMovies(id).map { similarMoviesResponse ->
-            similarMoviesResponse.results?.map { movieResponse ->
-                val movieGenres = mutableListOf<String>()
-                movieResponse.genre_ids?.forEach { id -> genreCatalog[id]?.let { movieGenres.add(it) } }
-                movieResponse.toSimilarVo().copy(movieGenres = normalizedText(movieGenres))
+        return repository.getGenresList().flatMap { genreListResponse ->
+            val genreCatalog = genreListResponse.genres.associate { it.id to it.name }
+            repository.getSimilarMovies(id).map { similarMoviesResponse ->
+                similarMoviesResponse.results?.map { movieResponse ->
+                    val movieGenres = mutableListOf<String>()
+                    movieResponse.genre_ids?.forEach { id ->
+                        genreCatalog[id]?.let { movieGenres.add(it) }
+                    }
+                    movieResponse.toSimilarVo().copy(movieGenres = normalizedText(movieGenres))
+                }
             }
         }
     }
