@@ -58,7 +58,7 @@ class DetailsFragment : BaseMvvmFragment() {
             SafeObserver { vo -> populateViewSimilarMovies(vo) })
     }
 
-//    @Suppress("UNCHECKED_CAST")
+    @Suppress("UNCHECKED_CAST")
     private fun handlerState(viewState: ViewState) {
         when (viewState) {
             is Success<*> -> {
@@ -70,11 +70,13 @@ class DetailsFragment : BaseMvvmFragment() {
                     populateViewDetails(it)
                 }
 
-                binding.progressBar.hide()
+                binding.content.progressBar.hide()
+                handleEmptyContainer(false)
             }
 
             is Loading -> {
-                binding.apply {
+                binding.content.apply {
+                    handleEmptyContainer(true)
                     progressBar.show()
 //                    shimmer.show()
                 }
@@ -92,8 +94,17 @@ class DetailsFragment : BaseMvvmFragment() {
 
     }
 
+    private fun showLoading() {
+        with(binding.content) {
+            likes.hide()
+            popularityIcon.hide()
+            morphViewLike.hide()
+
+        }
+    }
+
     private fun populateViewDetails(vo: MovieDetailsVo) {
-        with(binding) {
+        with(binding.content) {
             Picasso.get().load(vo.posterUrl).into(poster)
             title.text = vo.title
             likes.text = vo.likes
@@ -108,15 +119,15 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun startAnimationLike() {
-        binding.morphViewLike.morph()
+        binding.content.morphViewLike.morph()
     }
 
     private fun setScrollViewBehavior() {
-        binding.nestedScrollView.apply {
+        binding.content.nestedScrollView.apply {
             this.setOnScrollChangeListener(
                 NestedScrollView.OnScrollChangeListener { _, scrollX, scrollY, _, _ ->
                     val boundsAux = Rect()
-                    binding.poster.getDrawingRect(boundsAux)
+                    binding.content.poster.getDrawingRect(boundsAux)
                     val bounds = Rect(
                         boundsAux.left,
                         boundsAux.top,
@@ -159,14 +170,14 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun handleEmptyContainer(show: Boolean) {
-        with(binding) {
+        with(binding.content) {
             if (show) {
-                shimmer.hideShimmer()
+                shimmerList.hideShimmer()
                 likes.hide()
                 popularity.hide()
                 morphViewLike.hide()
             } else {
-                shimmer.show()
+                shimmerList.show()
                 likes.show()
                 popularity.show()
                 morphViewLike.show()
@@ -185,14 +196,14 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.similarMovies.apply {
+        binding.content.similarMovies.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = detailsAdapter
         }
     }
 
     private fun pullToRefresh() {
-        binding.swipeRefreshLayout.apply {
+        binding.content.swipeRefreshLayout.apply {
             setOnRefreshListener {
 //                viewModel.getMovie()
                 isRefreshing = false

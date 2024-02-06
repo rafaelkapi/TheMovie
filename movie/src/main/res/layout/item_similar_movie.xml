@@ -24,18 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
-        <!--            <androidx.appcompat.widget.AppCompatImageView-->
-        <!--                android:id="@+id/iv_poster"-->
-        <!--                android:layout_width="0dp"-->
-        <!--                android:layout_height="0dp"-->
-        <!--                setImageUrlResize="@{viewmodel.posterUrl}"-->
-        <!--                android:scaleType="centerCrop"-->
-        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--                app:layout_constraintDimensionRatio="9:13"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="parent"-->
-        <!--                tools:src="@tools:sample/backgrounds/scenic" />-->
-
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
@@ -52,8 +40,6 @@
             app:layout_constraintVertical_bias=".4"
             tools:text="Edward Scissorhands" />
 
-        <!--            android:text="@{viewmodel.title}"-->
-
         <TextView
             android:id="@+id/year"
             android:layout_width="wrap_content"
@@ -65,8 +51,6 @@
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintVertical_bias=".1"
             tools:text="1990" />
-
-        <!--            android:text="@{viewmodel.releaseDate}"-->
 
         <TextView
             android:id="@+id/genres"
@@ -80,9 +64,6 @@
             app:layout_constraintStart_toEndOf="@id/year"
             app:layout_constraintTop_toTopOf="@id/year"
             tools:text="Drama, Fantasy" />
-
-        <!--            android:text="@{viewmodel.genres}"-->
-
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="16dp"
