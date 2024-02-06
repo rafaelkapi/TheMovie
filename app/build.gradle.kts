@@ -49,4 +49,18 @@ dependencies {
     // Ktx Extension
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
+
+    // Moshi
+    implementation(libs.moshi.kotlin)
+
+    // OkHttp3
+    implementation(libs.okhttp3.okhttp)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    // Retrofit
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.retrofit2.converter.moshi)
+    implementation(libs.rxjava2.rxjava.adapter)
+    implementation(libs.retrofit2.converter.gson)
 }

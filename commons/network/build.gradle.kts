@@ -1,4 +1,7 @@
 dependencies {
+
+    api(project(projects.library.Commons.Modules.extensions))
+
     // Kotlin
     implementation(libs.kotlin.stdlib.jdk7)
     implementation(libs.kotlin.reflect)
@@ -17,6 +20,10 @@ dependencies {
 
     // Retrofit
     implementation(libs.retrofit2.retrofit)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.retrofit2.converter.moshi)
+    implementation(libs.rxjava2.rxjava.adapter)
+    implementation(libs.retrofit2.converter.gson)
 
     // Moshi
     implementation(libs.moshi.kotlin)

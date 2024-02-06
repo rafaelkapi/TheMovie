@@ -2,8 +2,10 @@ package com.cactus.themovie.di
 
 import android.app.Application
 import com.cactus.commons.base.ViewModelModule
+import com.cactus.movie.moviedetails.di.DetailsModuleBuilder
 import com.cactus.network.CommonsSchedulersModule
-import com.cactus.network.di.NetworkModule
+import com.cactus.network.di.CommonsContextModule
+import com.cactus.network.di.CommonsNetworkBuilderModule
 import com.cactus.themovie.CustomApplication
 import dagger.BindsInstance
 import dagger.Component
@@ -16,9 +18,11 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     MovieActivityBuilderModule::class,
-    NetworkModule::class,
+    CommonsNetworkBuilderModule::class,
     CommonsSchedulersModule::class,
     ViewModelModule::class,
+    DetailsModuleBuilder::class,
+    CommonsContextModule::class
     ])
 interface AppComponent : AndroidInjector<DaggerApplication> {
 

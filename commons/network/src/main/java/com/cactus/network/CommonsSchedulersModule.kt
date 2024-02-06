@@ -5,8 +5,8 @@
  */
 package com.cactus.network
 
-import com.cactus.network.qualifier.CommonsIoScheduler
-import com.cactus.network.qualifier.CommonsMainScheduler
+import com.cactus.network.qualifiers.CommonsIoScheduler
+import com.cactus.network.qualifiers.CommonsMainScheduler
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Scheduler

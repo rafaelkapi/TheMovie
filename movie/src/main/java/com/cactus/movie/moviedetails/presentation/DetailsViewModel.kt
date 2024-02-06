@@ -5,8 +5,8 @@ import com.cactus.commons.base.BaseViewModel
 import com.cactus.commons.livedata.ViewState
 import com.cactus.movie.moviedetails.domain.DetailsInteractor
 import com.cactus.movie.moviedetails.presentation.model.SimilarMoviesVo
-import com.cactus.network.qualifier.CommonsIoScheduler
-import com.cactus.network.qualifier.CommonsMainScheduler
+import com.cactus.network.qualifiers.CommonsIoScheduler
+import com.cactus.network.qualifiers.CommonsMainScheduler
 import io.reactivex.Scheduler
 import javax.inject.Inject
 

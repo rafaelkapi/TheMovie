@@ -57,7 +57,7 @@ class DetailsFragment : BaseMvvmFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
         setupRecyclerView()
-        setScrollViewBehavior()
+//        setScrollViewBehavior()
         pullToRefresh()
     }
 
@@ -87,7 +87,7 @@ class DetailsFragment : BaseMvvmFragment() {
             is Loading -> {
                 binding.apply {
                     progressBar.show()
-                    shimmer.show()
+//                    shimmer.show()
                 }
             }
 
@@ -105,16 +105,16 @@ class DetailsFragment : BaseMvvmFragment() {
 
     private fun populateViewDetails(vo: MovieDetailsVo) {
         with(binding) {
-            Picasso.get().load(vo.posterUrl).into(poster)
-            title.text = vo.title
-            likes.text = vo.likes
-            popularity.text = vo.popularity
-            overview.text = vo.subtitle
+//            Picasso.get().load(vo.posterUrl).into(poster)
+//            title.text = vo.title
+//            likes.text = vo.likes
+//            popularity.text = vo.popularity
+//            overview.text = vo.subtitle
         }
     }
 
     private fun populateViewSimilarMovies(listVo: List<SimilarMoviesVo>) {
-        binding.shimmer.hide()
+//        binding.shimmer.hide()
         detailsAdapter.setViewItems(listVo)
     }
 
@@ -122,68 +122,67 @@ class DetailsFragment : BaseMvvmFragment() {
 //        binding.morphViewLike.morph()
     }
 
-    private fun setScrollViewBehavior() {
-        binding.nestedScrollView.apply {
-            this.setOnScrollChangeListener(
-                NestedScrollView.OnScrollChangeListener { _, scrollX, scrollY, _, _ ->
-                    val boundsAux = Rect()
-                    binding.poster.getDrawingRect(boundsAux)
-                    val bounds = Rect(
-                        boundsAux.left,
-                        boundsAux.top,
-                        boundsAux.right,
-                        ((boundsAux.bottom - (boundsAux.bottom * .05)).toInt())
-                    )
-
-                    val scrollBounds = Rect(
-                        scrollX,
-                        scrollY,
-                        (scrollX + this.width),
-                        (scrollY + this.height)
-                    )
-
-                    if (Rect.intersects(scrollBounds, bounds)) {
-                        activity?.apply {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                window.setDecorFitsSystemWindows(false)
-                            } else {
-                                window.addFlags(
-                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                                )
-                            }
-                        }
-
-                    } else {
-                        activity?.apply {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                window.setDecorFitsSystemWindows(true)
-                            } else {
-                                window.clearFlags(
-                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                                )
-                            }
-                        }
-                    }
-                }
-            )
-        }
-    }
+//    private fun setScrollViewBehavior() {
+//        binding.nestedScrollView.apply {
+//            this.setOnScrollChangeListener(
+//                NestedScrollView.OnScrollChangeListener { _, scrollX, scrollY, _, _ ->
+//                    val boundsAux = Rect()
+//                    binding.poster.getDrawingRect(boundsAux)
+//                    val bounds = Rect(
+//                        boundsAux.left,
+//                        boundsAux.top,
+//                        boundsAux.right,
+//                        ((boundsAux.bottom - (boundsAux.bottom * .05)).toInt())
+//                    )
+//
+//                    val scrollBounds = Rect(
+//                        scrollX,
+//                        scrollY,
+//                        (scrollX + this.width),
+//                        (scrollY + this.height)
+//                    )
+//
+//                    if (Rect.intersects(scrollBounds, bounds)) {
+//                        activity?.apply {
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//                                window.setDecorFitsSystemWindows(false)
+//                            } else {
+//                                window.addFlags(
+//                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//                                )
+//                            }
+//                        }
+//
+//                    } else {
+//                        activity?.apply {
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//                                window.setDecorFitsSystemWindows(true)
+//                            } else {
+//                                window.clearFlags(
+//                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//                                )
+//                            }
+//                        }
+//                    }
+//                }
+//            )
+//        }
+//    }
 
     private fun handleEmptyContainer(show: Boolean) {
-        with(binding) {
-            if (show) {
-                shimmer.hideShimmer()
-//                shimmer.hide()
-                likes.hide()
-                popularity.hide()
-                morphViewLike.hide()
-            } else {
-                shimmer.show()
-                likes.show()
-                popularity.show()
-                morphViewLike.show()
-            }
-        }
+//        with(binding) {
+//            if (show) {
+//                shimmer.hideShimmer()
+//                likes.hide()
+//                popularity.hide()
+//                morphViewLike.hide()
+//            } else {
+//                shimmer.show()
+//                likes.show()
+//                popularity.show()
+//                morphViewLike.show()
+//            }
+//        }
 
     }
 
@@ -197,20 +196,20 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.similarMovies.apply {
-            layoutManager = LinearLayoutManager(requireActivity())
-            adapter = detailsAdapter
-        }
+//        binding.similarMovies.apply {
+//            layoutManager = LinearLayoutManager(requireActivity())
+//            adapter = detailsAdapter
+//        }
     }
 
     private fun pullToRefresh() {
-        binding.swipeRefreshLayout.apply {
-            setOnRefreshListener {
-//                viewModel.getMovie()
-                isRefreshing = false
-
-            }
-        }
+//        binding.swipeRefreshLayout.apply {
+//            setOnRefreshListener {
+////                viewModel.getMovie()
+//                isRefreshing = false
+//
+//            }
+//        }
     }
 
     private fun resetLayout() {
