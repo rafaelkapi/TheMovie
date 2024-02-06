@@ -12,6 +12,7 @@ dependencies {
 
     api(project(projects.library.Commons.Modules.base))
     api(project(projects.library.Commons.Modules.network))
+    api(project(projects.library.Commons.Modules.extensions))
     api(project(projects.library.TheMovie.Modules.movie))
 
     // Kotlin

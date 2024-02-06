@@ -27,6 +27,4 @@ class MovieActivity : BaseMvvmActivity() {
             )
         }
     }
-
-
 }

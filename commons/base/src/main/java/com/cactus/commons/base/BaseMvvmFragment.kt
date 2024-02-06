@@ -13,13 +13,13 @@ open class BaseMvvmFragment : DaggerFragment() {
     @Inject
     lateinit var factory: DaggerViewModelFactory
 
-//    /**
-//     * Create a Activity View Model, a shared view model between Activity and Fragment
-//     */
-//    inline fun <reified VM : BaseViewModel> appActivityViewModel(): ActivityVMFragmentDelegate<VM> =
-//        ActivityVMFragmentDelegate(VM::class) {
-//            this.requireBaseActivity().vmFactory
-//        }
+    /**
+     * Create a Activity View Model, a shared view model between Activity and Fragment
+     */
+    inline fun <reified VM : BaseViewModel> appActivityViewModel(): ActivityVMFragmentDelegate<VM> =
+        ActivityVMFragmentDelegate(VM::class) {
+            this.requireBaseActivity().vmFactory
+        }
 
     /**
      * Create a Fragment own View Model

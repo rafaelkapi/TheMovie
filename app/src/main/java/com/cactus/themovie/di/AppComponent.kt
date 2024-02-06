@@ -1,6 +1,7 @@
 package com.cactus.themovie.di
 
 import android.app.Application
+import androidx.lifecycle.ViewModel
 import com.cactus.commons.base.ViewModelModule
 import com.cactus.movie.moviedetails.di.DetailsModuleBuilder
 import com.cactus.network.CommonsSchedulersModule
@@ -17,14 +18,16 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
+    ViewModelModule::class,
     MovieActivityBuilderModule::class,
     CommonsNetworkBuilderModule::class,
     CommonsSchedulersModule::class,
-    ViewModelModule::class,
     DetailsModuleBuilder::class,
     CommonsContextModule::class
     ])
 interface AppComponent : AndroidInjector<DaggerApplication> {
+
+//    fun getViewModelMap(): Map<Class<*>, ViewModel>
 
     fun inject(application: CustomApplication)
 

@@ -6,9 +6,8 @@
 package com.cactus.network.wrapper
 
 import androidx.annotation.VisibleForTesting
-import com.cactus.network.NetworkConstants
+import com.cactus.network.NetworkEnvironments
 import com.cactus.network.qualifiers.CommonsInterceptors
-import com.cactus.network.qualifiers.CommonsMoshi
 import com.cactus.network.qualifiers.CommonsNullOrEmptyConverter
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.cactus.network.extension.buildRetrofit
@@ -70,7 +69,7 @@ class CommonsNetworkWrapperImpl @Inject constructor(
         guardOkHttpClient()
         retrofit = buildRetrofit {
             client(okHttpClient)
-            baseUrl(NetworkConstants.baseUrl)
+            baseUrl(NetworkEnvironments.baseUrl)
             addConverterFactory(nullOrEmptyConverter)
             addConverterFactory(MoshiConverterFactory.create(moshi))
             addCallAdapterFactory(RxJava2CallAdapterFactory.create())

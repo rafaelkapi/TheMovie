@@ -23,6 +23,11 @@ class DetailsViewModel @Inject constructor(
     internal val similarMovies: LiveData<List<SimilarMoviesVo>> get() = _similarMovies
 
 
+    override fun onCreate() {
+        super.onCreate()
+        getMovie()
+    }
+
     private fun getMovie() {
         interactor.getMovieDetails(ID_MOVIE)
             .subscribeOn(ioScheduler)

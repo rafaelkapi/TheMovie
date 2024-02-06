@@ -5,6 +5,7 @@
  */
 package com.cactus.network.interceptor
 
+import com.cactus.network.NetworkEnvironments
 import javax.inject.Inject
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -20,18 +21,13 @@ class CommonsBearerTokenInterceptor @Inject constructor(
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
 
-//        if (environment.isTrustedDomain(request.url().toString()).not())
-//            return chain.proceed(request.newBuilder().build())
-//
-//        val newBuilder = request.newBuilder()
-//        if (bearerSession.getAuthBearer().isNotEmpty()) {
-//            newBuilder.apply {
-//                val authorization: String = CONST_BEARER + bearerSession.getAuthBearer()
-//                header(CONST_AUTHORIZATION, authorization)
-//            }
-//        }
 
-//        return chain.proceed(newBuilder.build())
-        return chain.proceed(request)
+        val newBuilder = request.newBuilder()
+            newBuilder.apply {
+                val authorization: String = CONST_BEARER + NetworkEnvironments.bearerToken
+                header(CONST_AUTHORIZATION, authorization)
+            }
+
+        return chain.proceed(newBuilder.build())
     }
 }

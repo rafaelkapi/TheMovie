@@ -2,6 +2,7 @@ package com.cactus.movie.moviedetails.di
 
 import androidx.lifecycle.ViewModel
 import com.cactus.commons.base.ViewModelKey
+import com.cactus.commons.base.ViewModelModule
 import com.cactus.movie.moviedetails.data.DetailsRepository
 import com.cactus.movie.moviedetails.data.DetailsRepositoryImpl
 import com.cactus.movie.moviedetails.data.DetailsService
@@ -17,11 +18,11 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 import retrofit2.Retrofit
 
-@Module
+@Module(includes = [DetailsModule::class,])
 abstract class DetailsModuleBuilder {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules =[DetailsModule::class, DetailsModuleViewModel::class])
+    @ContributesAndroidInjector
     abstract fun bindsDetailsFragment(): DetailsFragment
 }
 
@@ -33,6 +34,11 @@ abstract class DetailsModule {
     @Binds
     abstract fun bindDetailsInteractor(impl: DetailsInteractorImpl): DetailsInteractor
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailsViewModel::class)
+    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
+
     @Module
     companion object {
         @JvmStatic
@@ -42,12 +48,4 @@ abstract class DetailsModule {
     }
 }
 
-@Module
-abstract class DetailsModuleViewModel {
-    @Binds
-    @IntoMap
-    @ViewModelKey(DetailsViewModel::class)
-    abstract fun bindDetailsViewModel(viewModel: DetailsViewModel): ViewModel
-
-}
 
