@@ -3,7 +3,6 @@ package com.cactus.themovie
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
 import com.cactus.commons.base.BaseMvvmActivity
 import com.cactus.themovie.databinding.MovieActivityBinding
 
