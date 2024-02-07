@@ -80,7 +80,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     tools:text="  1.2K Likes" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/popularityIcon"
                     android:layout_width="@dimen/iv_popularity_w_h"
                     android:layout_height="@dimen/iv_popularity_w_h"

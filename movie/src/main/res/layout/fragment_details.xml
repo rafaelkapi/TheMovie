@@ -14,4 +14,8 @@
         android:id="@+id/content"
         layout="@layout/container_details" />
 
+    <include
+        android:id="@+id/error"
+        layout="@layout/container_details_error" />
+
 </ViewFlipper>

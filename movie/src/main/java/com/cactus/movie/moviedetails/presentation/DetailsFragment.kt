@@ -1,17 +1,12 @@
 package com.cactus.movie.moviedetails.presentation
 
-import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cactus.commons.base.BaseMvvmFragment
 import com.cactus.commons.extensions.hide
-import com.cactus.commons.extensions.show
 import com.cactus.commons.livedata.SafeObserver
 import com.cactus.commons.livedata.ViewState
 import com.cactus.commons.livedata.ViewState.Success
@@ -33,11 +28,7 @@ class DetailsFragment : BaseMvvmFragment() {
     private val viewModel by appViewModel<DetailsViewModel>()
     private val binding by viewBinding(FragmentDetailsBinding::inflate)
 
-    private lateinit var containerViewActivityMain: View
-
-    private val detailsAdapter: DetailsAdapter by lazy {
-        DetailsAdapter()
-    }
+    private val detailsAdapter: DetailsAdapter by lazy { DetailsAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -47,9 +38,15 @@ class DetailsFragment : BaseMvvmFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
         setupRecyclerView()
-//        setScrollViewBehavior()
         pullToRefresh()
         setAnimationLike()
+        setClickTryAgain()
+    }
+
+    private fun setClickTryAgain() {
+        binding.error.errorContainer.setOnClickListener {
+            viewModel.refresh()
+        }
     }
 
     private fun setupObservers() {
@@ -79,7 +76,7 @@ class DetailsFragment : BaseMvvmFragment() {
             }
 
             is Error -> {
-                handleEmptyContainer(true)
+                binding.viewSelector.displayedChild = viewState.position
                 showError()
             }
 
@@ -108,26 +105,9 @@ class DetailsFragment : BaseMvvmFragment() {
         with(binding.content.morphViewLike) { setOnClickListener { morph() } }
     }
 
-    private fun handleEmptyContainer(show: Boolean) {
-        with(binding.content) {
-            if (show) {
-                shimmerList.hideShimmer()
-                likes.hide()
-                popularity.hide()
-                morphViewLike.hide()
-            } else {
-                shimmerList.show()
-                likes.show()
-                popularity.show()
-                morphViewLike.show()
-            }
-        }
-    }
-
     private fun showError() {
-        handleEmptyContainer(true)
         Snackbar.make(
-            containerViewActivityMain,
+            requireActivity().findViewById(R.id.container),
             getString(R.string.error_conection),
             Snackbar.LENGTH_LONG
         ).show()
@@ -143,27 +123,11 @@ class DetailsFragment : BaseMvvmFragment() {
     private fun pullToRefresh() {
         binding.content.swipeRefreshLayout.apply {
             setOnRefreshListener {
-//                viewModel.getMovie()
+                viewModel.refresh()
                 isRefreshing = false
 
             }
         }
-    }
-
-    private fun resetLayout() {
-//        viewModel.apply {
-//            movieLiveData.value = Movie()
-//            genresListLiveData.value?.clear()
-//            similarMoviesLiveData.value?.clear()
-//            popularityLiveData.value = ""
-//            likesLiveData.value = ""
-//        }
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-//        containerViewActivityMain = activity?.findViewById(R.id.navHosFragment)!!
     }
 }
 

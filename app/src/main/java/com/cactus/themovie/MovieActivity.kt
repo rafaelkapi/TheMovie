@@ -9,7 +9,7 @@ import com.cactus.themovie.databinding.MovieActivityBinding
 
 class MovieActivity : BaseMvvmActivity() {
 
-    private lateinit var binding: MovieActivityBinding
+     lateinit var binding: MovieActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

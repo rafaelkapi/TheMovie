@@ -29,6 +29,11 @@ class DetailsViewModel @Inject constructor(
         getSimilarMovies()
     }
 
+    internal fun refresh() {
+        getMovie()
+        getSimilarMovies()
+    }
+
     private fun getMovie() {
         interactor.getMovieDetails(ID_MOVIE)
             .subscribeOn(ioScheduler)
