@@ -1,6 +1,6 @@
 # TheMovie
 
-![Preview-Screens](screenshotTheMovie.png)
+![Preview-Screens](screenshotTheMovie2.png)
 
 ## About Project
 

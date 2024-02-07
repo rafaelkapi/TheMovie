@@ -55,10 +55,3 @@ subprojects {
         }
     }
 }
-
-//allprojects {
-//    repositories {
-//        google()
-//        maven("https://jitpack.io")
-//    }
-//}
