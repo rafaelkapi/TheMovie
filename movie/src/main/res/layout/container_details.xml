@@ -100,7 +100,7 @@
                     app:layout_constraintTop_toTopOf="@+id/likes"
                     tools:text="  3.5K Popularity" />
 
-                <com.cactus.movie.moviedetails.presentation.view.MorphLikeView
+                <com.cactus.movie.moviedetails.presentation.customView.MorphLikeView
                     android:id="@+id/morphViewLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

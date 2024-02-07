@@ -16,12 +16,10 @@ class ActivityVMFragmentDelegate<T : BaseViewModel>(
     private val vmFactory: () -> ViewModelProvider.Factory
 ) : ReadOnlyProperty<Fragment, T> {
 
-    var cache: T? = null
+    private var cache: T? = null
 
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
-        return cache?.let {
-            it
-        } ?: run {
+        return cache ?: run {
             val activity = thisRef.requireActivity()
             ViewModelProvider(activity, vmFactory.invoke()).get(clazz.java).apply {
                 activity.lifecycle.addObserver(this)

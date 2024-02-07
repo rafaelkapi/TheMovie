@@ -21,7 +21,6 @@ class CommonsBearerTokenInterceptor @Inject constructor(
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
 
-
         val newBuilder = request.newBuilder()
             newBuilder.apply {
                 val authorization: String = CONST_BEARER + NetworkEnvironments.bearerToken

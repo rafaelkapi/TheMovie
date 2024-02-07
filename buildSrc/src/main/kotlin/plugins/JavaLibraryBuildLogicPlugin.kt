@@ -1,6 +1,5 @@
 package plugins
 
-import core.*
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin

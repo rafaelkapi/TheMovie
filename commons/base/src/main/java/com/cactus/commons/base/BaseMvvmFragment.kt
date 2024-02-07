@@ -10,6 +10,7 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 open class BaseMvvmFragment : DaggerFragment() {
+
     @Inject
     lateinit var factory: DaggerViewModelFactory
 

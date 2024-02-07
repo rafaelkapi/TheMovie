@@ -1,4 +1,4 @@
-package com.cactus.movie.moviedetails.presentation.view
+package com.cactus.movie.moviedetails.presentation.customView
 
 import android.content.Context
 import android.util.AttributeSet

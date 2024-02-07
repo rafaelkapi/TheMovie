@@ -9,13 +9,7 @@ import com.cactus.movie.databinding.ItemSimilarMovieBinding
 import com.cactus.movie.moviedetails.presentation.model.SimilarMoviesVo
 import com.squareup.picasso.Picasso
 
-class DetailsAdapter() : RecyclerView.Adapter<DetailsViewHolder>() {
-
-//    var list: List<SimilarMoviesVo> = emptyList()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
+class DetailsAdapter : RecyclerView.Adapter<DetailsViewHolder>() {
 
     private val differ: AsyncListDiffer<SimilarMoviesVo?> = AsyncListDiffer(this, DIFF_CALLBACK)
 

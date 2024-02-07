@@ -15,10 +15,6 @@ import javax.inject.Inject
 class CustomApplication : DaggerApplication() {
     private lateinit var appComponent: AppComponent
 
-//    @Inject
-//    lateinit var applicationLifecycleObserver: ApplicationLifecycleObserver
-
-
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         appComponent = DaggerAppComponent
             .builder()
@@ -27,11 +23,5 @@ class CustomApplication : DaggerApplication() {
 
         appComponent.inject(this)
         return appComponent
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-//        applicationLifecycleObserver.addObservers()
-
     }
 }

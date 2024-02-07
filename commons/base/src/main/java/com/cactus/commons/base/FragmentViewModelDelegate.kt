@@ -20,7 +20,6 @@ class FragmentViewModelDelegate<T : BaseViewModel>(
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         return ViewModelProvider(fragment, vmFactory.invoke()).get(clazz.java)
             .apply { thisRef.lifecycle.addObserver(this) }
-
     }
 
     override fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {}

@@ -1,7 +1,5 @@
 package projects.library
 
-import projects.model.AndroidVersion
-import projects.model.DefaultModuleNames
 import projects.model.Module
 import projects.model.ModuleType
 import projects.model.ProjectInfo
@@ -31,8 +29,8 @@ object Commons {
 
     object Modules {
         const val ROOT = ":commons"
-        val network = "$ROOT:network"
-        val base = "$ROOT:base"
-        val extensions = "$ROOT:extensions"
+        const val network = "$ROOT:network"
+        const val base = "$ROOT:base"
+        const val extensions = "$ROOT:extensions"
     }
 }

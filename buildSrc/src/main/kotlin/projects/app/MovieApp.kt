@@ -1,7 +1,6 @@
 package projects.app
 
 import projects.model.AndroidVersion
-import projects.model.DefaultModuleNames
 import projects.model.Module
 import projects.model.ModuleType
 import projects.model.ProjectInfo
