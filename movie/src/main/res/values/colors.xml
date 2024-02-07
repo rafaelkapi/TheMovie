@@ -13,4 +13,8 @@
     <color name="colorAccent">#13F0D6</color>
     <color name="textColorPrimary">#fff</color>
     <color name="textColorSecondary">#bbb</color>
+
+
+    <color name="shimmerColor">#605F5F</color>
+
 </resources>

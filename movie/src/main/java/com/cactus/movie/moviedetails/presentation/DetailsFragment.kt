@@ -17,6 +17,7 @@ import com.cactus.commons.livedata.ViewState
 import com.cactus.commons.livedata.ViewState.Success
 import com.cactus.commons.livedata.ViewState.Loading
 import com.cactus.commons.livedata.ViewState.Error
+import com.cactus.commons.livedata.ViewState.Normal.position
 import com.cactus.commons.viewbinding.viewBinding
 import com.cactus.movie.R
 import com.cactus.movie.databinding.FragmentDetailsBinding
@@ -48,6 +49,7 @@ class DetailsFragment : BaseMvvmFragment() {
         setupRecyclerView()
 //        setScrollViewBehavior()
         pullToRefresh()
+        setAnimationLike()
     }
 
     private fun setupObservers() {
@@ -69,17 +71,11 @@ class DetailsFragment : BaseMvvmFragment() {
                 (viewState.value as? MovieDetailsVo)?.let {
                     populateViewDetails(it)
                 }
-
-                binding.content.progressBar.hide()
-                handleEmptyContainer(false)
+                binding.viewSelector.displayedChild = viewState.position
             }
 
             is Loading -> {
-                binding.content.apply {
-                    handleEmptyContainer(true)
-                    progressBar.show()
-//                    shimmer.show()
-                }
+                binding.viewSelector.displayedChild = viewState.position
             }
 
             is Error -> {
@@ -90,16 +86,6 @@ class DetailsFragment : BaseMvvmFragment() {
             else -> {
                 showError()
             }
-        }
-
-    }
-
-    private fun showLoading() {
-        with(binding.content) {
-            likes.hide()
-            popularityIcon.hide()
-            morphViewLike.hide()
-
         }
     }
 
@@ -114,59 +100,12 @@ class DetailsFragment : BaseMvvmFragment() {
     }
 
     private fun populateViewSimilarMovies(listVo: List<SimilarMoviesVo>) {
-//        binding.shimmer.hide()
+        binding.content.shimmerList.hide()
         detailsAdapter.setViewItems(listVo)
     }
 
-    private fun startAnimationLike() {
-        binding.content.morphViewLike.morph()
-    }
-
-    private fun setScrollViewBehavior() {
-        binding.content.nestedScrollView.apply {
-            this.setOnScrollChangeListener(
-                NestedScrollView.OnScrollChangeListener { _, scrollX, scrollY, _, _ ->
-                    val boundsAux = Rect()
-                    binding.content.poster.getDrawingRect(boundsAux)
-                    val bounds = Rect(
-                        boundsAux.left,
-                        boundsAux.top,
-                        boundsAux.right,
-                        ((boundsAux.bottom - (boundsAux.bottom * .05)).toInt())
-                    )
-
-                    val scrollBounds = Rect(
-                        scrollX,
-                        scrollY,
-                        (scrollX + this.width),
-                        (scrollY + this.height)
-                    )
-
-                    if (Rect.intersects(scrollBounds, bounds)) {
-                        activity?.apply {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                window.setDecorFitsSystemWindows(false)
-                            } else {
-                                window.addFlags(
-                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                                )
-                            }
-                        }
-
-                    } else {
-                        activity?.apply {
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                window.setDecorFitsSystemWindows(true)
-                            } else {
-                                window.clearFlags(
-                                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                                )
-                            }
-                        }
-                    }
-                }
-            )
-        }
+    private fun setAnimationLike() {
+        with(binding.content.morphViewLike) { setOnClickListener { morph() } }
     }
 
     private fun handleEmptyContainer(show: Boolean) {
@@ -183,7 +122,6 @@ class DetailsFragment : BaseMvvmFragment() {
                 morphViewLike.show()
             }
         }
-
     }
 
     private fun showError() {
