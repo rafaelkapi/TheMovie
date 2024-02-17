@@ -1,6 +1,5 @@
 # TheMovie
-
-![Preview-Screens](screenshotTheMovie2.png)
+<img src="screenshotTheMovie2.png" height="600">
 
 ## About Project
 
