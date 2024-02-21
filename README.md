@@ -3,7 +3,7 @@
 
 ## About Project
 
-This app was developed through a [challenge](file:///C:/Users/rafae/Downloads/Desafio%20M2y%20Android%20%20(1).pdf). In addition to the resources required by the challenge, others were added such as:
+This app was developed through a challenge. In addition to the resources required by the challenge, others were added such as:
 - Pull to refresh
 - Icon Animated
   * Shape Shifter
@@ -18,15 +18,16 @@ This app consumes a API REST, for more information visit the link: https://devel
 
 ## Specifications and Technologies
 
-- 100% Kotlin 
-- Architecture MVVM
+- 100% Kotlin
+- Modular Architecture
 - Clean Architecture
+- Domain-Drive Design (DDD)
 - Design Patterns
-- Data Binding
+- View Binding
 - Android Jetpack 
   * Navigation
   * Live Data
-- Kotlin Coroutines
+- RX java
 - Retrofit 2  
   * Interceptor OkHttp3
   * Converter Moshi
